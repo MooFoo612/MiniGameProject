@@ -21,8 +21,7 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    private void FixedUpdate() {
-        // If input is not 0, try to move
+    private void FixedUpdate() {/*
         if(movementInput != Vector2.zero) {
             // Check for collisions
             int count = rb.Cast(
@@ -30,11 +29,11 @@ public class PlayerController : MonoBehaviour
                 movementFilter, // Settings that determine where a collision can occur on such as layuers to collide with
                 castCollisions, // List of collisions to store the found collisions into after the Cast is finished
                 moveSpeed * Time.fixedDeltaTime + collisionOffset); // Amount to cast equal to the movement plus an offset
-            }
-        }
+        }*/
     }
 
+
     void OnMove(InputValue movementValue) {
-        movementInput = movementValue.Get<Vector2>();
+       // movementInput = movementValue.Get<Vector2>();
     }
 }
