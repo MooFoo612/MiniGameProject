@@ -17,9 +17,9 @@ public class PlayerCamera : MonoBehaviour
     {
         if (camTarget) {
             transform.position = new Vector3(
-                camTarget.transform.position.x * cameraPosition.x,
-                camTarget.transform.position.y * cameraPosition.y,
-                camTarget.transform.position.z * cameraPosition.z
+                camTarget.transform.position.x + cameraPosition.x,
+                camTarget.transform.position.y + cameraPosition.y,
+                camTarget.transform.position.z + cameraPosition.z
             );
         }
     }
