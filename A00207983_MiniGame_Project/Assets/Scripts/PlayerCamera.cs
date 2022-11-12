@@ -9,18 +9,13 @@ public class PlayerCamera : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {      
+    {  
+        //Wake Me Up Inside    
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (camTarget) {
-            transform.position = new Vector3(
-                camTarget.transform.position.x + cameraPosition.x,
-                camTarget.transform.position.y + cameraPosition.y,
-                camTarget.transform.position.z + cameraPosition.z
-            );
-        }
+
     }
 }

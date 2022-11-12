@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
 
         animator.SetFloat("Speed", 0); 
         animator.SetFloat("Vertical", -1);
+        animator.SetFloat("Horizontal", 0);
     }
 
     // Update is called once per frame
@@ -36,18 +37,31 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate() {
         if(movementInput != Vector2.zero) {
-            // Check for collisions
-            int count = rb.Cast(
-                movementInput,  // x and y values between -1 and 1 that represent the direction from the body to look for collisions
-                movementFilter, // Settings that determine where a collision can occur on such as layuers to collide with
-                castCollisions, // List of collisions to store the found collisions into after the Cast is finished
-                moveSpeed * Time.fixedDeltaTime + collisionOffset); // Amount to cast equal to the movement plus an offset
+            bool success = TryMove(movementInput);
 
-            if (count == 0) {
-                rb.MovePosition(rb.position + movementInput * moveSpeed * Time.fixedDeltaTime);
+            if (!success) {
+                success = TryMove(new Vector2(movementInput.x, 0));
 
-                
+                if (!success) {
+                    success = TryMove(new Vector2(0, movementInput.y));
+                }
             }
+        }
+    }
+
+    private bool TryMove(Vector2 direction) {
+        // Check for collisions
+        int count = rb.Cast(
+            direction,  // x and y values between -1 and 1 that represent the direction from the body to look for collisions
+            movementFilter, // Settings that determine where a collision can occur on such as layuers to collide with
+            castCollisions, // List of collisions to store the found collisions into after the Cast is finished
+            moveSpeed * Time.fixedDeltaTime + collisionOffset); // Amount to cast equal to the movement plus an offset
+
+        if (count == 0) {
+            rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
+            return true;           
+        } else {
+            return false;
         }
     }
 
@@ -65,5 +79,28 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("Vertical", movementInput.y);
             animator.SetFloat("Speed", 0);            
         }
+    }
+
+    void OnFire() {
+        movementInput = Vector2.zero;
+        //animator.SetBool("isAttacking", true);
+        animator.SetTrigger("Attack");
+        //animator.SetBool("isAttacking", false);
+
+        
+        //if (movementInput != Vector2.zero) {
+        //    movementInput = new Vector2(0,0);
+        //    animator.SetFloat("Horizontal", movementInput.x);
+        //    animator.SetFloat("Vertical", movementInput.y);
+        //    animator.SetBool("isAttacking", true);
+        //    animator.SetTrigger("Attack");
+        //}
+        //else {
+        //    animator.SetFloat("Horizontal", movementInput.x);
+        //    animator.SetFloat("Vertical", movementInput.y);
+        //    animator.SetBool("isAttacking", true);
+        //    animator.SetTrigger("Attack");            
+        //}
+
     }
 }
