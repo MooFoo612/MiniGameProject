@@ -36,14 +36,21 @@ public class PlayerController : MonoBehaviour
     }
 
     private void FixedUpdate() {
+        // Attempting greasySweet movement:
+
+        // Check for movement input
         if(movementInput != Vector2.zero) {
-            bool success = TryMove(movementInput);
+            bool moveSuccess = TryMove(movementInput);
 
-            if (!success) {
-                success = TryMove(new Vector2(movementInput.x, 0));
+            // If not successful
+            if (!moveSuccess) {
+                // Check against X axis
+                moveSuccess = TryMove(new Vector2(movementInput.x, 0));
 
-                if (!success) {
-                    success = TryMove(new Vector2(0, movementInput.y));
+                //If still not successful
+                if (!moveSuccess) {
+                    // Check along the Y axis
+                    moveSuccess = TryMove(new Vector2(0, movementInput.y));
                 }
             }
         }
@@ -51,13 +58,17 @@ public class PlayerController : MonoBehaviour
 
     private bool TryMove(Vector2 direction) {
         // Check for collisions
-        int count = rb.Cast(
-            direction,  // x and y values between -1 and 1 that represent the direction from the body to look for collisions
-            movementFilter, // Settings that determine where a collision can occur on such as layuers to collide with
-            castCollisions, // List of collisions to store the found collisions into after the Cast is finished
-            moveSpeed * Time.fixedDeltaTime + collisionOffset); // Amount to cast equal to the movement plus an offset
+        int checkCollision = rb.Cast(
+            // X and Y values <->(-1,1) representing the direction from the body to look for collisions
+            direction,
+            // Settings that determine where a collision can occur on such as layuers to collide with  
+            movementFilter,
+            // List of collisions to store the found collisions into after the Cast is finished 
+            castCollisions,
+            // Amount to cast equal to the movement plus an offset
+            moveSpeed * Time.fixedDeltaTime + collisionOffset); 
 
-        if (count == 0) {
+        if (checkCollision == 0) {
             rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
             return true;           
         } else {
@@ -83,24 +94,7 @@ public class PlayerController : MonoBehaviour
 
     void OnFire() {
         movementInput = Vector2.zero;
-        //animator.SetBool("isAttacking", true);
-        animator.SetTrigger("Attack");
-        //animator.SetBool("isAttacking", false);
-
         
-        //if (movementInput != Vector2.zero) {
-        //    movementInput = new Vector2(0,0);
-        //    animator.SetFloat("Horizontal", movementInput.x);
-        //    animator.SetFloat("Vertical", movementInput.y);
-        //    animator.SetBool("isAttacking", true);
-        //    animator.SetTrigger("Attack");
-        //}
-        //else {
-        //    animator.SetFloat("Horizontal", movementInput.x);
-        //    animator.SetFloat("Vertical", movementInput.y);
-        //    animator.SetBool("isAttacking", true);
-        //    animator.SetTrigger("Attack");            
-        //}
-
+        animator.SetTrigger("Attack");
     }
 }

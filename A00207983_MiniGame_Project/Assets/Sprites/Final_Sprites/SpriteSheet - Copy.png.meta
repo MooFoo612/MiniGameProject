@@ -118,43 +118,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SpriteSheet_0
+      name: SpriteSheet - Copy_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c14c8ff99af71a64ca80d1fa65fb73da
-      internalID: 470988191
+      spriteID: ff7422792aa3b2744a689eedc437a252
+      internalID: 713371561
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheet_1
+      name: SpriteSheet - Copy_1
       rect:
         serializedVersion: 2
         x: 16
         y: 0
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6d92dd55419bb341a4170f36c109c1d
-      internalID: -2057181096
+      spriteID: 633f3f6fd4190b54998cc490798d0c14
+      internalID: -806653087
       vertices: []
       indices: 
       edges: []
@@ -170,8 +170,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SpriteSheet_0: 470988191
-      SpriteSheet_1: -2057181096
+      SpriteSheet - Copy_0: 713371561
+      SpriteSheet - Copy_1: -806653087
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 

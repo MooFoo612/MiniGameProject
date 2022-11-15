@@ -30,7 +30,7 @@ public class NpcController : MonoBehaviour
 
         waitTime = startWaitTime;
 
-        moveSpot.position = new Vector2(Random.Range(minX,minY), Random.Range(maxX,maxY));
+        //moveSpot.position = new Vector2(Random.Range(minX,minY), Random.Range(maxX,maxY));
     }
 
     // Update is called once per frame
@@ -43,17 +43,26 @@ public class NpcController : MonoBehaviour
         if (Vector2.Distance(transform.position, moveSpot.position) < 0.2f) {
             if (waitTime <= 0) {
                 npcAnimator.SetBool("isWalking", true);
+
                 moveSpot.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY)); 
+                
                 if ((moveSpot.position.x - prevX) > 0) {
                     npcSR.flipX = false;
-                } else {
+                } else if ((moveSpot.position.x - prevX) <= 0) {
                     npcSR.flipX = true;
                 }
+
                 waitTime = startWaitTime;
             } else {
+
                 npcAnimator.SetBool("isWalking", false);
+                
                 waitTime -= Time.fixedDeltaTime;
             }
         }
+    }
+    
+    void FixedUpdate() {
+        
     }
 }

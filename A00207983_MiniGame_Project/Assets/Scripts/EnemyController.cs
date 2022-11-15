@@ -28,7 +28,7 @@ public class EnemyPatrol : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(transform.position, moveSpot.position, speed * Time.fixedDeltaTime);
 
-        if (Vector2.Distance(transform.position, moveSpot.position) < 0.2f) {
+        if (Vector2.Distance(transform.position, moveSpot.position) < 0.3f) { 
             if (waitTime <= 0) {
                 moveSpot.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
                 waitTime = startWaitTime;
