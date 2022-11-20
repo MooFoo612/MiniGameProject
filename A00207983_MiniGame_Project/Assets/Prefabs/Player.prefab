@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 8558847466761830024}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,8 +164,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   collisionOffset: 0.05
+  health: 10
+  checkCollision: 0
   movementFilter:
-    useTriggers: 0
+    useTriggers: 1
     useLayerMask: 0
     useDepth: 0
     useOutsideDepth: 0
@@ -173,7 +175,7 @@ MonoBehaviour:
     useOutsideNormalAngle: 0
     layerMask:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 1
     minDepth: 0
     maxDepth: 0
     minNormalAngle: 0
@@ -189,7 +191,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 4686265716983942507}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -198,7 +200,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!70 &8558847466761830024
 CapsuleCollider2D:
@@ -213,9 +215,9 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
-  m_Direction: 0
+  m_Offset: {x: -0.005800577, y: 0.24032047}
+  m_Size: {x: 1.0348026, y: 0.52266604}
+  m_Direction: 1
 --- !u!1 &7322528986494531791
 GameObject:
   m_ObjectHideFlags: 0

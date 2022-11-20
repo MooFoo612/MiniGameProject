@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 4f;
     public float collisionOffset = 0.05f;
+    public int health = 10;
 
     public ContactFilter2D movementFilter;
 
@@ -70,7 +71,7 @@ public class PlayerController : MonoBehaviour
 
         if (checkCollision == 0) {
             rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
-            return true;           
+            return true;        
         } else {
             return false;
         }
