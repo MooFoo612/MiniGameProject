@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 4f;
     public float collisionOffset = 0.05f;
-    public int health = 10;
+    public static int health = 15;
+    public static int maxHealth = 20;
 
     public ContactFilter2D movementFilter;
 

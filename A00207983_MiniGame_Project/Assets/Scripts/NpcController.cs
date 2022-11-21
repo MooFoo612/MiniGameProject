@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NpcController : MonoBehaviour
 {
+    public int health = 3;
     public float speed;
     private float waitTime;
     public float startWaitTime;
@@ -29,13 +30,15 @@ public class NpcController : MonoBehaviour
         npcSR = GetComponent<SpriteRenderer>();
 
         waitTime = startWaitTime;
-
-        //moveSpot.position = new Vector2(Random.Range(minX,minY), Random.Range(maxX,maxY));
     }
 
     // Update is called once per frame
     void Update()
     {
+
+    }
+    
+    void FixedUpdate() {
         transform.position = Vector2.MoveTowards(transform.position, moveSpot.position, speed * Time.fixedDeltaTime);
 
         prevX = transform.position.x;
@@ -60,9 +63,5 @@ public class NpcController : MonoBehaviour
                 waitTime -= Time.fixedDeltaTime;
             }
         }
-    }
-    
-    void FixedUpdate() {
-        
     }
 }

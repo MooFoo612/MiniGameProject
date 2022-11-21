@@ -164,8 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   collisionOffset: 0.05
-  health: 10
-  checkCollision: 0
+  health: 15
   movementFilter:
     useTriggers: 1
     useLayerMask: 0
