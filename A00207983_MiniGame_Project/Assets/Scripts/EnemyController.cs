@@ -28,7 +28,7 @@ public class EnemyController : MonoBehaviour
         enemyAnimator = GetComponent<Animator>();
         enemySR = GetComponent<SpriteRenderer>();
 
-        waitTime = startWaitTime;
+        //waitTime = startWaitTime;
 
         //moveSpot.position = new Vector2(Random.Range(minX,minY), Random.Range(maxX,maxY));
     }
@@ -36,30 +36,30 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, moveSpot.position, speed * Time.fixedDeltaTime);
-
-        prevX = transform.position.x;
-
-        if (Vector2.Distance(transform.position, moveSpot.position) < 0.2f) {
-            if (waitTime <= 0) {
-                enemyAnimator.SetBool("isWalking", true);
-
-                moveSpot.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY)); 
-                
-                if ((moveSpot.position.x - prevX) > 0) {
-                    enemySR.flipX = false;
-                } else if ((moveSpot.position.x - prevX) <= 0) {
-                    enemySR.flipX = true;
-                }
-
-                waitTime = startWaitTime;
-            } else {
-
-                enemyAnimator.SetBool("isWalking", false);
-                
-                waitTime -= Time.fixedDeltaTime;
-            }
-        }
+        //transform.position = Vector2.MoveTowards(transform.position, moveSpot.position, speed * Time.fixedDeltaTime);
+//
+        //prevX = transform.position.x;
+//
+        //if (Vector2.Distance(transform.position, moveSpot.position) < 0.2f) {
+        //    if (waitTime <= 0) {
+        //        enemyAnimator.SetBool("isWalking", true);
+//
+        //        moveSpot.position = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY)); 
+        //        
+        //        if ((moveSpot.position.x - prevX) > 0) {
+        //            enemySR.flipX = false;
+        //        } else if ((moveSpot.position.x - prevX) <= 0) {
+        //            enemySR.flipX = true;
+        //        }
+//
+        //        waitTime = startWaitTime;
+        //    } else {
+//
+        //        enemyAnimator.SetBool("isWalking", false);
+        //        
+        //        waitTime -= Time.fixedDeltaTime;
+        //    }
+        //}
     }
     
     void FixedUpdate() {
