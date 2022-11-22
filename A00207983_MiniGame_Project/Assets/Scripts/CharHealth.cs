@@ -44,7 +44,7 @@ public class CharHealth : MonoBehaviour
 
                 Destroy(lifePot);
 
-                charHealth ++ 5f;
+                charHealth += 5f;
             }
         }
     }
