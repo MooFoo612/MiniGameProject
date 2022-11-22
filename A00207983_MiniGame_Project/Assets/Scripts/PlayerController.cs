@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Speed", 0); 
         animator.SetFloat("Vertical", -1);
         animator.SetFloat("Horizontal", 0);
+        animator.SetBool("isWalking", false);
     }
 
     // Update is called once per frame
@@ -86,11 +87,13 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("Horizontal", movementInput.x);
             animator.SetFloat("Vertical", movementInput.y);
             animator.SetFloat("Speed", 1);
+            animator.SetBool("isWalking", true);
         }
         else {
             animator.SetFloat("Horizontal", movementInput.x);
             animator.SetFloat("Vertical", movementInput.y);
-            animator.SetFloat("Speed", 0);            
+            animator.SetFloat("Speed", 0);    
+            animator.SetBool("isWalking", false);        
         }
     }
 
