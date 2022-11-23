@@ -18,6 +18,11 @@ public class enemyAggro : MonoBehaviour
     void Start()
     {
         enemyRB = enemy.GetComponent<Rigidbody2D>();
+
+        enemyAnimator.SetFloat("Speed", 0); 
+        enemyAnimator.SetFloat("Vertical", -1);
+        enemyAnimator.SetFloat("Horizontal", 0);
+        enemyAnimator.SetBool("isWalking", false);
     }
 
     // Update is called once per frame
@@ -37,7 +42,7 @@ public class enemyAggro : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.name.Equals(target.name)) {
-            enemyAnimator.SetFloat("speed", 1
+            enemyAnimator.SetFloat("Speed", 1);
             Debug.Log("Entered Aggro Zone: " + enemy.name);
             targetSpotted = true;
         }
@@ -45,7 +50,7 @@ public class enemyAggro : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision) {
         if (collision.name.Equals(target.name)) {
-            enemyAnimator.SetBool("isWalking", false);
+            enemyAnimator.SetBool("Speed", false);
             Debug.Log("Exit: " + enemy.name);
             targetSpotted = false;
         }
